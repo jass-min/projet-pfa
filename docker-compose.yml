@@ -1,21 +1,21 @@
-version: '3'
+version: "3"
 
 services:
   nextjs-app:
-    image: nextjs-app  # Change this to your Next.js app image if you have one
+    image: nextjs-app # Change this to your Next.js app image if you have one
     build:
-      context: .  # Path to your Next.js app
+      context: . # Path to your Next.js app
     ports:
-      - "3000:3000"  # Expose the Next.js app on port 3000
+      - "8002:8002" # Expose the Next.js app on port 3000
     environment:
-      DB_HOST: carbon-postgres  # Use the name ofa the Postgres service
+      DB_HOST: carbon-postgres # Use the name ofa the Postgres service
       DB_PORT: 5432
-      DB_USER: ${DATABASE_USERNAME}  # Set these variables in .env file
+      DB_USER: ${DATABASE_USERNAME} # Set these variables in .env file
       DB_PASSWORD: ${DATABASE_PASSWORD}
       DB_NAME: ${DATABASE_NAME}
     networks:
-      - my-network  # Use the same network as the old project
+      - my-network # Use the same network as the old project
 
 networks:
   my-network:
-    external: true  # Use the existing network
+    external: true # Use the existing network
