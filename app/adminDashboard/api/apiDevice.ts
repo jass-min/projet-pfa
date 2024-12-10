@@ -5,17 +5,21 @@ export const getDevices = async () => {
   return await fetchData("devices");
 };
 
-export const addDevice = async (device: { deviceName: string; referenceNumber: string }): Promise<Device> => {
+export const addDevice = async (device: {
+  deviceName: string;
+  referenceNumber: string;
+}): Promise<any> => {
   const response = await postData("devices", device);
   return response; // Ensure response is of type Device
 };
-
 
 export const deleteDevice = async (id: number) => {
   return await deleteData(`devices/${id}`);
 };
 
-
-export const updateDevice = async (id: number, updatedDevice: { deviceName: string; referenceNumber: string }) => {
+export const updateDevice = async (
+  id: number,
+  updatedDevice: { deviceName: string; referenceNumber: string }
+) => {
   return await updateData(`devices/${id}`, updatedDevice);
 };

@@ -31,7 +31,7 @@ COPY --from=build /app/.next ./.next
 RUN npm install --production
 
 # Step 11: Expose the port Next.js will run on
-EXPOSE 3000
+EXPOSE 8002
 
 # Step 12: Set the command to start the Next.js app
 CMD ["npm", "start"]
